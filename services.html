@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - DOVAS TECHNOLOGIES</title>
+    <meta name="description" content="Comprehensive data analytics services including Power BI development, Excel automation, data modeling, and business intelligence solutions.">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        :root {
+            --primary-blue: #0a1628;
+            --accent-blue: #1e3a8a;
+            --electric-blue: #3b82f6;
+            --neon-cyan: #06b6d4;
+            --orange-accent: #f59e0b;
+            --purple-accent: #8b5cf6;
+            --gray-100: #f8fafc;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-blue);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(45deg, var(--neon-cyan), var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a.active,
+        .nav-links a:hover {
+            color: var(--neon-cyan);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--neon-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .services-section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Service Categories */
+        .service-category {
+            margin-bottom: 6rem;
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: var(--electric-blue);
+            margin-bottom: 1rem;
+        }
+
+        .category-description {
+            font-size: 1.1rem;
+            color: var(--gray-800);
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-color: var(--electric-blue);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--electric-blue), var(--neon-cyan));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--gray-800);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            color: var(--gray-800);
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--electric-blue);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--electric-blue);
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(45deg, var(--electric-blue), var(--neon-cyan));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Process Section */
+        .process-section {
+            background: var(--gray-100);
+            padding: 6rem 0;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--electric-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .process-step h4 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--primary-blue) 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">DOVAS TECH</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Comprehensive Data Analytics Services</h1>
+            <p>From dashboard creation to advanced automation, we deliver end-to-end solutions that transform your business intelligence capabilities.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Core Services</h2>
+
+            <!-- Power BI Services -->
+            <div class="service-category">
+                <div class="category-header">
+                    <h3 class="category-title">Power BI Development & Consulting</h3>
+                    <p class="category-description">Transform your data into powerful, interactive dashboards that drive informed decision-making across your organization.</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3>Custom Dashboard Development</h3>
+                        <p>Tailored Power BI dashboards designed specifically for your business needs and KPIs.</p>
+                        <ul class="service-features">
+                            <li>Interactive visualizations</li>
+                            <li>Real-time data updates</li>
+                            <li>Mobile-responsive design</li>
+                            <li>Role-based access control</li>
+                            <li>Custom branding</li>
+                        </ul>
+                        <div class="service-price">Starting at $2,500</div>
+                        <a href="contact.html" class="btn">Get Quote</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🔄</div>
+                        <h3>Data Integration & ETL</h3>
+                        <p>Seamlessly connect and transform data from multiple sources into unified reporting solutions.</p>
+                        <ul class="service-features">
+                            <li>Multi-source data connection</li>
+                            <li>Automated data refresh</li>
+                            <li>Data cleansing & transformation</li>
+                            <li>Performance optimization</li>
+                            <li>Error handling & monitoring</li>
+                        </ul>
+                        <div class="service-price">Starting at $1,800</div>
+                        <a href="contact.html" class="btn">Get Quote</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🎯</div>
+                        <h3>Power BI Training & Support</h3>
+                        <p>Comprehensive training programs to empower your team with Power BI expertise.</p>
+                        <ul class="service-features">
+                            <li>Beginner to advanced courses</li>
+                            <li>Hands-on workshop sessions</li>
+                            <li>Custom training materials</li>
+                            <li>Ongoing technical support</li>
+                            <li>Best practices guidance</li>
+                        </ul>
+                        <div class="service-price">Starting at $1,200</div>
+                        <a href="contact.html" class="btn">Get Quote</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Excel Automation Services -->
+            <div class="service-category">
+                <div class="category-header">
+                    <h3 class="category-title">Excel Automation & Advanced Analytics</h3>
+                    <p class="category-description">Revolutionize your Excel workflows with intelligent automation, advanced formulas, and custom solutions that save time and eliminate errors.</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🤖</div>
+                        <h3>VBA Automation Solutions</h3>
+                        <p>Custom VBA macros and applications that automate repetitive tasks and complex processes.</p>
+                        <ul class="service-features">
+                            <li>Custom macro development</li>
+                            <li>User-friendly interfaces</li>
+                            <li>Automated reporting systems</li>
+                            <li>Data validation & error handling</li>
+                            <li>Performance optimization</li>
+                        </ul>
+                        <div class="service-price">Starting at $800</div>
+                        <a href="contact.html" class="btn">Get Quote</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3>Power Query Development</h3>
+                        <p>Advanced data transformation and connection solutions using Power Query and M language.</p>
+                        <ul class="service-features">
+                            <li>Complex data transformations</li>
+                            <li>Multi-source data consolidation</li>
+                            <li>Automated data refresh</li>
+                            <li>Custom functions & queries</li>
+                            <li>Performance optimization</li>
+                        </ul>
+                        <div class="service-price">Starting at $1,000</div>
+                        <a href="contact.html" class="btn">Get Quote</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">📈</div>
+                        <h3>Advanced Excel Modeling</h3>
+                        <p>Sophisticated financial models, forecasting tools, and analytical frameworks.</p>
+                        <ul class="service-features">
+                            <li>Financial modeling & analysis</li>
+                            <li>Scenario planning tools</li>
+                            <li>Advanced chart & visualizations</li>
+                            <li>Dynamic dashboards</li>
+                            <li>Sensitivity analysis</li>
+                        </ul>
+                        <div class="service-price">Starting at $1,500</div>
+                        <a href="contact.html" class="btn">Get Quote</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Modeling & DAX Services -->
+            <div class="service-category">
+                <div class="category-header">
+                    <h3 class="category-title">Data Modeling & Advanced DAX</h3>
+                    <p class="category-description">Build robust data architectures and sophisticated calculations that scale with your business growth and analytical needs.</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🏗️</div>
+                        <h3>Enterprise Data Modeling</h3>
+                        <p>Scalable data models designed for enterprise-level analytics and reporting requirements.</p>
+                        <ul class="service-features">
+                            <li>Star & snowflake schema design</li>
+                            <li>Relationship optimization</li>
+                            <li>Performance tuning</li>
+                            <li>Security implementation</li>
+                            <li>Documentation & governance</li>
+                        </ul>
+                        <div class="service-price">Starting at $3,000</div>
+                        <a href="contact.html" class="btn">Get Quote</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🧮</div>
+                        <h3>Complex DAX Development</h3>
+                        <p>Advanced DAX formulas and calculations for sophisticated business intelligence requirements.</p>
+                        <ul class="service-features">
+                            <li>Time intelligence calculations</li>
+                            <li>Advanced aggregations</li>
+                            <li>Context manipulation</li>
+                            <li>Performance optimization</li>
+                            <li>Custom measures & KPIs</li>
+                        </ul>
+                        <div class="service-price">Starting at $1,200</div>
+                        <a href="contact.html" class="btn">Get Quote</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🔍</div>
+                        <h3>Data Quality & Governance</h3>
+                        <p>Comprehensive data quality assessment and governance framework implementation.</p>
+                        <ul class="service-features">
+                            <li>Data quality auditing</li>
+                            <li>Governance framework setup</li>
+                            <li>Data lineage documentation</li>
+                            <li>Quality monitoring systems</li>
+                            <li>Best practices implementation</li>
+                        </ul>
+                        <div class="service-price">Starting at $2,200</div>
+                        <a href="contact.html" class="btn">Get Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">Our Proven Process</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Discovery & Analysis</h4>
+                    <p>We analyze your current data landscape, understand your business requirements, and identify opportunities for improvement.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Solution Design</h4>
+                    <p>Create detailed specifications and architectural designs tailored to your specific needs and technical environment.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Development & Testing</h4>
+                    <p>Build and rigorously test your solution, ensuring optimal performance, accuracy, and user experience.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Deployment & Training</h4>
+                    <p>Deploy your solution and provide comprehensive training to ensure your team can maximize its potential.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>Support & Optimization</h4>
+                    <p>Ongoing support, maintenance, and optimization to ensure continued success and adapt to changing needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Data Analytics?</h2>
+            <p>Let's discuss how our services can drive your business forward with powerful data solutions.</p>
+            <a href="contact.html" class="btn">Start Your Project Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 DOVAS TECHNOLOGIES. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Service card hover animations
+        const cards = document.querySelectorAll('.service-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - DOVAS TECHNOLOGIES</title>
+    <meta name="description" content="Get in touch with DOVAS TECHNOLOGIES for advanced data analytics solutions. Contact us for Power BI, Excel automation, and custom dashboard development.">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        :root {
+            --primary-blue: #0a1628;
+            --accent-blue: #1e3a8a;
+            --electric-blue: #3b82f6;
+            --neon-cyan: #06b6d4;
+            --orange-accent: #f59e0b;
+            --purple-accent: #8b5cf6;
+            --gray-100: #f8fafc;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --success-green: #10b981;
+            --warning-red: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(10px, 10px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(45deg, var(--neon-cyan), var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--neon-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            background: transparent;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 10;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, var(--neon-cyan), var(--orange-accent), var(--purple-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(90deg); }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* Contact Form */
+        .contact-form-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .contact-form-section:hover::before {
+            left: 100%;
+        }
+
+        .form-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .form-subtitle {
+            color: var(--gray-800);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            background: #f8fafc;
+            color: var(--gray-800);
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--electric-blue);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--electric-blue), var(--neon-cyan));
+            color: white;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--electric-blue), var(--neon-cyan));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card p {
+            color: var(--gray-800);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .info-card a {
+            color: var(--electric-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .info-card a:hover {
+            color: var(--neon-cyan);
+        }
+
+        /* Business Hours */
+        .hours-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Success/Error Messages */
+        .message {
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .message.success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success-green);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .message.error {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--warning-red);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 4rem;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1.5rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 700;
+            color: var(--primary-blue);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--electric-blue);
+        }
+
+        .faq-answer {
+            margin-top: 1rem;
+            color: var(--gray-800);
+            opacity: 0.8;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-answer.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .faq-toggle {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-toggle.rotated {
+            transform: rotate(45deg);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form-section,
+            .faq-section {
+                padding: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">DOVAS TECHNOLOGIES</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Let's Build Your <span class="gradient-text">Data Future</span> Together</h1>
+            <p>Ready to transform your business with cutting-edge analytics? We're here to make it happen.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="contact-grid fade-in">
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <h2 class="form-title">Start Your Project</h2>
+                    <p class="form-subtitle">Tell us about your data analytics needs and we'll get back to you within 24 hours.</p>
+                    
+                    <div id="message" class="message"></div>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name*</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name*</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address*</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="company">Company Name</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+                            <div class="form-group">
+                                <label for="industry">Industry</label>
+                                <select id="industry" name="industry">
+                                    <option value="">Select Industry</option>
+                                    <option value="Technology">Technology</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Manufacturing">Manufacturing</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Government">Government</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Select Service</option>
+                                <option value="Power BI Development">Power BI Development</option>
+                                <option value="Excel Automation">Excel Automation & VBA</option>
+                                <option value="Data Modeling">Advanced DAX & Data Modeling</option>
+                                <option value="Dashboard Creation">Custom Dashboard Creation</option>
+                                <option value="Data Migration">Data Migration & Integration</option>
+                                <option value="Training">Training & Consulting</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">Project Budget Range</label>
+                            <select id="budget" name="budget">
+                                <option value="">Select Budget Range</option>
+                                <option value="Under $5,000">Under $5,000</option>
+                                <option value="$5,000 - $15,000">$5,000 - $15,000</option>
+                                <option value="$15,000 - $50,000">$15,000 - $50,000</option>
+                                <option value="$50,000+">$50,000+</option>
+                                <option value="Ongoing Support">Ongoing Support Contract</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeline">Desired Timeline</label>
+                            <select id="timeline" name="timeline">
+                                <option value="">Select Timeline</option>
+                                <option value="ASAP">ASAP (Rush Job)</option>
+                                <option value="1-2 weeks">1-2 weeks</option>
+                                <option value="1 month">1 month</option>
+                                <option value="2-3 months">2-3 months</option>
+                                <option value="3+ months">3+ months</option>
+                                <option value="Flexible">Flexible</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Details*</label>
+                            <textarea id="messageText" name="message" placeholder="Please describe your current data challenges, desired outcomes, and any specific requirements..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <h3>Phone</h3>
+                        <p><a href="tel:+2348162337303">+234 816 233 7303</a></p>
+                        <p>Available Monday - Friday<br>9:00 AM - 6:00 PM (WAT)</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">✉️</div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:microsoftportharcourt@gmail.com">microsoftportharcourt@gmail.com</a></p>
+                        <p>We respond within 24 hours</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <h3>Location</h3>
+                        <p>Lagos, Nigeria</p>
+                        <p>Serving clients globally</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">🌐</div>
+                        <h3>Portfolio</h3>
+                        <p><a href="https://sites.google.com/view/samogide/home" target="_blank">View Our Work</a></p>
+                        <p>See our latest projects and case studies</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">⏰</div>
+                        <h3>Business Hours</h3>
+                        <ul class="hours-list">
+                            <li><span>Monday - Friday</span><span>9:00 AM - 6:00 PM</span></li>
+                            <li><span>Saturday</span><span>10:00 AM - 2:00 PM</span></li>
+                            <li><span>Sunday</span><span>Closed</span></li>
+                            <li><span>Emergency Support</span><span>24/7 Available</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section fade-in">
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What types of data analytics projects do you handle?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We specialize in Power BI dashboard development, Excel automation with VBA, advanced DAX modeling, data visualization, business intelligence solutions, and custom reporting systems. We work with businesses of all sizes across various industries.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How long does a typical project take to complete?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Project timelines vary based on complexity. Simple dashboards can be completed in 1-2 weeks, while comprehensive business intelligence solutions may take 2-3 months. We provide detailed timelines during our initial consultation.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you provide training and ongoing support?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! We offer comprehensive training sessions for your team and provide ongoing support packages. This includes system maintenance, updates, troubleshooting, and additional feature development as your needs evolve.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What data sources can you work with?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We work with virtually any data source including Excel files, SQL databases, cloud platforms (Azure, AWS), web APIs, SharePoint, Google Analytics, CRM systems, ERP systems, and more. Data integration is one of our core strengths.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do you ensure data security and confidentiality?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We follow strict data security protocols including signed NDAs, secure data transfer methods, encrypted storage, and compliance with industry standards. Your data privacy and security are our top priorities throughout every project.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Scroll animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            elements.forEach((element) => {
+                observer.observe(element);
+            });
+        }
+
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                toggle.classList.remove('rotated');
+            } else {
+                // Close all other FAQs
+                document.querySelectorAll('.faq-answer.show').forEach(openAnswer => {
+                    openAnswer.classList.remove('show');
+                });
+                document.querySelectorAll('.faq-toggle.rotated').forEach(openToggle => {
+                    openToggle.classList.remove('rotated');
+                });
+                
+                // Open this FAQ
+                answer.classList.add('show');
+                toggle.classList.add('rotated');
+            }
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(e.target);
+            const firstName = formData.get('firstName');
+            const lastName = formData.get('lastName');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const company = formData.get('company');
+            const industry = formData.get('industry');
+            const service = formData.get('service');
+            const budget = formData.get('budget');
+            const timeline = formData.get('timeline');
+            const message = formData.get('message');
+            
+            // Create mailto link
+            const subject = encodeURIComponent(`Data Analytics Project Inquiry from ${firstName} ${lastName}`);
+            const body = encodeURIComponent(`
+Contact Information:
+Name: ${firstName} ${lastName}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Company: ${company || 'Not provided'}
+Industry: ${industry || 'Not specified'}
+
+Project Details:
+Service Interest: ${service || 'Not specified'}
+Budget Range: ${budget || 'Not specified'}
+Timeline: ${timeline || 'Not specified'}
+
+Message:
+${message}
+
+---
+Sent from DOVAS TECHNOLOGIES Contact Form
+            `);
+            
+            const mailtoLink = `mailto:microsoftportharcourt@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Show success message
+            const messageDiv = document.getElementById('message');
+            messageDiv.className = 'message success';
+            messageDiv.textContent = 'Thank you for your inquiry! Your email client will open to send your message.';
+            messageDiv.style.display = 'block';
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Reset form after short delay
+            setTimeout(() => {
+                e.target.reset();
+                messageDiv.style.display = 'none';
+            }, 3000);
+        });
+
+        // Dynamic navigation background
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(10, 22, 40, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(10, 22, 40, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            animateOnScroll();
+        });
+    </script>
+</body>
+</html>
